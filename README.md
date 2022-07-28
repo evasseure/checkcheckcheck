@@ -10,14 +10,14 @@ To get errors and suggestions from an input file or a string:
 ## Examples
 
 ```
-$ mix correct "hello wrld waht is up?
+$ mix correct "hello wrld waht is up?"
 Errors in input:
 Word: wrld, Suggestions: [world, wild, weld]
 Word: waht, Suggestions: [what, wat, wah]
 ```
 
 ```
-$ ex: `mix correct ./data/inputs/ashford-short.txt`
+$ mix correct ./data/inputs/ashford-short.txt
 Errors in input:
 Word: peaple, Suggestions: [people, peale, pepple]
 Word: salteena, Suggestions: []
@@ -32,16 +32,16 @@ Simply run: `mix test`
 ## Performance tests
 
 `./data/inputs/ashford-short.txt`  
-Total time: 1.176746s  
+Total time: 1.17s  
 Words: 490  
 Words per second: 416.41 word/s
 
 `./data/inputs/ashford.txt`  
-Total time: 58.445784s  
+Total time: 58.44s  
 Words: 12,484  
 Words per second: 213.6 word/s
 
 `"hello wrld waht is up?"`  
-Total time: 0.104436s  
+Total time: 0.10s  
 Words: 5  
 Words per second: 47.88 word/s
