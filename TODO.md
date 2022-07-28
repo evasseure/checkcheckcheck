@@ -1,0 +1,3 @@
+- [ ] Have a better dictionnary, with probability
+- [ ] Be faster?
+- [ ] Give up this project and start something new to also give up
