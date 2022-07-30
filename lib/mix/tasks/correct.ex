@@ -16,10 +16,11 @@ defmodule Mix.Tasks.Correct do
       end
 
     result = SpellChecker.check(input)
+    # IO.inspect(result)
 
-    Enum.reduce(result, "Errors in input:\n", fn error, acc ->
-      acc <> "Word: #{elem(error, 1)}, Suggestions: [#{Enum.join(elem(error, 2), ", ")}]\n"
-    end)
+    # Enum.reduce(result, "Errors in input:\n", fn error, acc ->
+    #   acc <> "Word: #{elem(error, 1)}, Suggestions: [#{Enum.join(elem(error, 2), ", ")}]\n"
+    # end)
   end
 
   @impl Mix.Task
