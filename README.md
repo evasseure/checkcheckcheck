@@ -3,6 +3,8 @@
 A small Spelling Corrector written with Elixir to discover the language, and learn some new things!  
 Things are not ideal, especially for huge text files, since I use a `Task.await_many` (with a huge timeout), which kinda goes against the idea of low-latency, distributed, and fault-tolerance. This is not how it should work in a real world application, but this is just a toy project/script.
 
+The implementation is heavely inspired by Peter Norvig's article on [How to Write a Spelling Corrector](http://norvig.com/spell-correct.html).  
+
 ## Usage
 
 To get errors and suggestions from an input file or a string:  
