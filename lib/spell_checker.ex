@@ -6,7 +6,7 @@ defmodule SpellChecker do
   end
 
   defp check_sentence(sentence, dictionnary) do
-    Enum.map(String.split(sentence), &WordChecker.check(cleaned(&1), dictionnary, 0))
+    Enum.map(String.split(sentence), &WordChecker.check(cleaned(&1), dictionnary))
     |> Enum.filter(&match?({:error, _, _}, &1))
   end
 
@@ -27,11 +27,23 @@ defmodule SpellChecker do
       Task.await_many(tasks, 100_000) |> List.flatten()
     end
 
+    RustWordChecker.correct(text, dictionnary)
+
     {u_secs, result} = :timer.tc(run_checker)
     word_count = length(String.split(text))
     Logger.info("Total time: #{u_secs / 1_000_000}s")
-    Logger.info("Words: #{word_count}")
-    Logger.info("Words per second: #{(word_count / (u_secs / 1_000_000)) |> Float.ceil(2)} word/s")
+    # Logger.info("Words: #{word_count}")
+    # Logger.info("Words per second: #{(word_count / (u_secs / 1_000_000)) |> Float.ceil(2)} word/s")
+
+    # IO.inspect(result)
+
     result
+
+    # {u_secs, result} = :timer.tc(run_checker)
+    # word_count = length(String.split(text))
+    # Logger.info("Total time: #{u_secs / 1_000_000}s")
+    # Logger.info("Words: #{word_count}")
+    # Logger.info("Words per second: #{(word_count / (u_secs / 1_000_000)) |> Float.ceil(2)} word/s")
+    # result
   end
 end

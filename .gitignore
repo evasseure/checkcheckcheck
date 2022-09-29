@@ -26,3 +26,4 @@ checkcheckcheck-*.tar
 /tmp/
 
 .elixir_ls
+priv
